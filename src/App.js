@@ -10,8 +10,8 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      result: '',
-      input: ''
+      input: '',
+      result: ''
     }
 
     this.permute = this.permute.bind(this)
@@ -20,13 +20,15 @@ class App extends Component {
   }
 
   permute () {
-    axios.get('http://java.waleedrehman.co.uk/java-web-service/permutation?permuteInt=' + this.state.input)
-    .then(responce => this.setState({result: responce.data.content}))
+    axios.get('http://java.waleedrehman.co.uk/java-web-service/permutation', {
+      params: {permuteInt: this.state.input}
+    }).then(responce => this.setState({result: responce.data.content}))
   }
 
   greeting () {
-    axios.get('http://java.waleedrehman.co.uk/java-web-service/greeting?name=' + this.state.input)
-    .then(responce => this.setState({result: responce.data.content}))
+    axios.get('http://java.waleedrehman.co.uk/java-web-service/greeting', {
+      params: {name: this.state.input}
+    }).then(responce => this.setState({result: responce.data.content}))
   }
 
   setInput (e) {
