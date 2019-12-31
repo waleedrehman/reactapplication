@@ -1,26 +1,49 @@
-import React from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends Component {
+
+  constructor() {
+    super()
+    this.state = {
+      result: '',
+      input: ''
+    }
+
+    this.permute = this.permute.bind(this)
+    this.greeting = this.greeting.bind(this)
+    this.setInput = this.setInput.bind(this)
+  }
+
+  permute () {
+    axios.get('http://java.waleedrehman.co.uk/java-web-service/permutation?permuteInt=' + this.state.input)
+    .then(responce => this.setState({result: responce.data.content}))
+  }
+
+  greeting () {
+    axios.get('http://java.waleedrehman.co.uk/java-web-service/greeting?name=' + this.state.input)
+    .then(responce => this.setState({result: responce.data.content}))
+  }
+
+  setInput (e) {
+    this.setState({input: e.target.value})
+  }
+
+  render () {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <p><input onChange={this.setInput}></input><button onClick={this.permute}>Permute</button><button onClick={this.greeting}>Greeting</button></p>
+          <p>{this.state.result}</p>
+        </header>
+      </div>
+    );
+  }
+  
 }
 
 export default App;
