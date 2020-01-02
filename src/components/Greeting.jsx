@@ -8,21 +8,16 @@ export default class Greeting extends Component {
   constructor() {
       super()
       this.state = {
-        input: '',
         result: ''
       }
       this.greeting = this.greeting.bind(this)
-      this.setInput = this.setInput.bind(this)
     }
       
-    greeting () {
+    greeting (e) {
+      e.preventDefault();
       axios.get('http://java.waleedrehman.co.uk/java-web-service/greeting', {
-        params: {name: this.state.input}
+        params: {name: e.target.input.value}
       }).then(responce => this.setState({result: responce.data.content}))
-    }
-    
-    setInput (e) {
-      this.setState({input: e.target.value})
     }
 
   render() {
@@ -33,7 +28,9 @@ export default class Greeting extends Component {
             <h3>Greeting</h3>
             <p>This page will be used to call the java-web-service endpoint for greeting, Brief discription explaining greeting solution below:</p>
             <p>to do - explain greeting</p>
-            <p><input onChange={this.setInput}></input><button onClick={this.greeting}>Greeting</button></p>
+            <form onSubmit={this.greeting}>
+              <input name="input"></input><button>Greeting</button>
+            </form>
             <p>{this.state.result}</p>
           </Col>
         </Grid>

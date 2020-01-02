@@ -8,21 +8,17 @@ export default class Permutation extends Component {
   constructor() {
     super()
     this.state = {
-      input: '',
       result: ''
     }
     this.permute = this.permute.bind(this)
-    this.setInput = this.setInput.bind(this)
   }
 
-  permute () {
+  permute (e) {
+    e.preventDefault();
+    console.log("what is: " + e.target.input.value)
     axios.get('http://java.waleedrehman.co.uk/java-web-service/permutation', {
-      params: {permuteInt: this.state.input}
+      params: {permuteInt: e.target.input.value}
     }).then(responce => this.setState({result: responce.data.content}))
-  }
-  
-  setInput (e) {
-    this.setState({input: e.target.value})
   }
   
   render() {
@@ -35,8 +31,11 @@ export default class Permutation extends Component {
             <p>The problem presented is given any string with 2 or more digits we should be able to extract all the given digits and generate the list of possible numbers these digits can be used to create in a discending order.</p>
             <p>For example, given the input of "236" the solution should return "632, 623, 362, 326, 263, 236"</p>
             <p>If the input provided is: “A 3B2 C6D”, then your solution should return "632,623,362,326,263,236" as well, but this time notice that the provided string had non-integers characters and whitespaces, so an extraction of integers was first made to obtain the correct solution</p>
-            <code>Example Java code to follow</code>
-            <p><input onChange={this.setInput}></input><button onClick={this.permute}>Permute</button></p>
+            <p><code>Example Java code to follow</code></p>
+            <p>Try it for yourself bellow:</p>
+            <form onSubmit={this.permute}>
+              <input name="input"></input><button>Permute</button>
+            </form>
             <p>{this.state.result}</p>
           </Col>
         </Grid>
