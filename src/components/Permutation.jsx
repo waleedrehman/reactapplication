@@ -31,7 +31,31 @@ export default class Permutation extends Component {
             <p>The problem presented is given any string with 2 or more digits we should be able to extract all the given digits and generate the list of possible numbers these digits can be used to create in a discending order.</p>
             <p>For example, given the input of "236" the solution should return "632, 623, 362, 326, 263, 236"</p>
             <p>If the input provided is: “A 3B2 C6D”, then your solution should return "632,623,362,326,263,236" as well, but this time notice that the provided string had non-integers characters and whitespaces, so an extraction of integers was first made to obtain the correct solution</p>
-            <p><code>Example Java code to follow</code></p>
+            <p>The permutation solution has a model and a controller, model or the PermutationDTO class code is as follows:</p>
+            <p>
+              <code>
+                package uk.co.waleed.Permutation.Model; <br />
+
+                public class PermutationDTO &#123;<br />
+                <br />
+                &#09;private final long id;<br />
+                &#09;private final String permuteInt;<br />
+                  <br />
+                  &#09;public PermutationDTO(long id, String permuteInt) &#123;<br />
+                  &#09;&#09;this.id = id;<br />
+                  &#09;&#09;this.permuteInt = permuteInt;<br />
+                  &#09;}<br />
+                  <br />
+                  &#09;public long getId() &#123;<br />
+                  &#09;&#09;return id;<br />
+                  &#09;}<br />
+                  <br />
+                  &#09;public String getContent() &#123;<br />
+                  &#09;&#09;return permuteInt;<br />
+                  &#09;}<br />
+                }<br />
+              </code>
+            </p>
             <p>Try it for yourself bellow:</p>
             <form onSubmit={this.permute}>
               <input name="input"></input><button>Permute</button>
