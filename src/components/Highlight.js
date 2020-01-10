@@ -1,7 +1,7 @@
 import Prism from 'prismjs'
 import React, { useEffect } from 'react'
 
-import '../../node_modules/prismjs/themes/prism-okaidia.css'
+import '../../node_modules/prismjs/themes/prism-coy.css'
 
 // Other languages can be added like so:
 // import '../../../node_modules/prismjs/components/prism-yaml'
