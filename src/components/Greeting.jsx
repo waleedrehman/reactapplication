@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, Image } from 'react-bootstrap';
+import { Grid, Col } from 'react-bootstrap';
 import './Greeting.css';
 import axios from 'axios';
 

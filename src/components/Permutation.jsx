@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Col, Image } from 'react-bootstrap';
+import { Grid, Col } from 'react-bootstrap';
 import './Permutation.css';
 import axios from 'axios';
 import Highlight from './Highlight';
