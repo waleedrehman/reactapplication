@@ -83,7 +83,12 @@ public class GreetingController {
 }
             `}
               </Highlight>
-              <p>Try for yourself bellow:</p>
+            <p>The web service can be queried by curl command or the form bellow or even any other way to send a GET request to the server i.e postman etc</p>
+            <p>To use curl run the following command in a bash terminal by changing the value of name to the name you want to greet :)</p>
+            <Highlight language='bash'>
+              curl http://java.waleedrehman.co.uk/java-web-service/greeting?name=Waleed
+            </Highlight>
+            <p>Or use the form bellow:</p>
             <form onSubmit={this.greeting}>
               <input name="input"></input><button>Greeting</button>
             </form>

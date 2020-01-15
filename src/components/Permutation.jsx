@@ -150,7 +150,12 @@ public class PermutationController {
             <p>The rest controller gets a string which gets passed to the permutation end point, this could be through Curl command or the React website, Once the input is recieved the controller loops through the characters to see if there are any digits in the string passed in, if there are digits then we are happy with the input and we can just extract the digits as our input for permute, if there are no digits in the input provided we just send a message back to the user as we need digits to be able to do the permutation.</p>
             <p>Once we are happy with the input we build an array of possible outcomes based on the digits passed in as part of the input. We then send the possible outcomes back to the user.</p>
             <p>In both of these instance we are using the DTO to send the data back to the user.</p>
-            <p>Try it for yourself bellow:</p>
+            <p>The web service can be queried by curl command or the form bellow or even any other way to send a GET request to the server i.e postman etc</p>
+            <p>To use curl run the following command in a bash terminal by changing the value of permuteInt to the input you want to permutate</p>
+            <Highlight language='bash'>
+              curl http://java.waleedrehman.co.uk/java-web-service/permutation?permuteInt=123
+            </Highlight>
+            <p>Or use the form bellow:</p>
             <form onSubmit={this.permute}>
               <input name="input"></input><button>Permute</button>
             </form>
