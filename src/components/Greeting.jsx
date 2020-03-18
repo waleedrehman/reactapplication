@@ -16,7 +16,7 @@ export default class Greeting extends Component {
       
     greeting (e) {
       e.preventDefault();
-      axios.get('http://java.waleedrehman.co.uk/java-web-service/greeting', {
+      axios.get('https://java.waleedrehman.co.uk/java-web-service/greeting', {
         params: {name: e.target.input.value}
       }).then(responce => this.setState({result: responce.data.content}))
     }
@@ -86,7 +86,7 @@ public class GreetingController {
             <p>The web service can be queried by curl command or the form bellow or even any other way to send a GET request to the server i.e postman etc</p>
             <p>To use curl run the following command in a bash terminal by changing the value of name to the name you want to greet :)</p>
             <Highlight language='bash'>
-              curl http://java.waleedrehman.co.uk/java-web-service/greeting?name=Waleed
+              curl https://java.waleedrehman.co.uk/java-web-service/greeting?name=Waleed
             </Highlight>
             <p>Or use the form bellow:</p>
             <form onSubmit={this.greeting}>
