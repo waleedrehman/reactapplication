@@ -17,7 +17,7 @@ export default class Permutation extends Component {
   permute (e) {
     e.preventDefault();
     console.log("what is: " + e.target.input.value)
-    axios.get('https://java.waleedrehman.co.uk/java-web-service/permutation', {
+    axios.get('https://javawebservice.waleedrehman.co.uk/permutation', {
       params: {permuteInt: e.target.input.value}
     }).then(responce => this.setState({result: responce.data.content}))
   }
@@ -153,7 +153,7 @@ public class PermutationController {
             <p>The web service can be queried by curl command or the form bellow or even any other way to send a GET request to the server i.e postman etc</p>
             <p>To use curl run the following command in a bash terminal by changing the value of permuteInt to the input you want to permutate</p>
             <Highlight language='bash'>
-              curl https://java.waleedrehman.co.uk/java-web-service/permutation?permuteInt=123
+              curl https://javawebservice.waleedrehman.co.uk/permutation?permuteInt=123
             </Highlight>
             <p>Or use the form bellow:</p>
             <form onSubmit={this.permute}>
